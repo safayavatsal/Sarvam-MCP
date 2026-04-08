@@ -115,9 +115,12 @@ async def lang_identification(text: str, lang:str) -> str:
         return json.dumps({"error": str(ex)})
     
 @mcp.tool(name="Sarvam_Chat")
-async def sarvam_chat(query: str, mode: str = "basic") -> str:
+async def sarvam_chat(query: str, mode: str = "basic", model: str = "sarvam-30b") -> str:
     """
-    Interact with SarvamAI-M model via API.
+    Interact with Sarvam AI chat models via API.
+    Available models:
+    - sarvam-30b: 30B parameter model with 64K context (default)
+    - sarvam-105b: 105B parameter model with 128K context
     Modes:
     - basic: Standard response
     - wiki: Uses wiki_grounding
@@ -129,8 +132,10 @@ async def sarvam_chat(query: str, mode: str = "basic") -> str:
     }
     if KEY == None:
         return "Please provide the Sarvam API Key"
+    if model not in ("sarvam-30b", "sarvam-105b"):
+        return "Invalid model. Choose 'sarvam-30b' or 'sarvam-105b'."
     payload = {
-        "model": "sarvam-m",
+        "model": model,
         "messages": [{"role": "user", "content": query}]
     }
     mode = mode.lower()
