@@ -51,7 +51,7 @@ async def lang_ident(text: str) -> str:
         "api-subscription-key": KEY,
         "Content-Type": "application/json"
     }
-    if KEY == None:
+    if KEY is None:
         return "Please provide the Sarvam API Key"
     if len(text)>2000:
         return "Input too long. Max allowed: 2000 characters."
@@ -75,7 +75,7 @@ async def transliterate(text: str, lang:str) -> str:
         "api-subscription-key": KEY,
         "Content-Type": "application/json"
     }
-    if KEY == None:
+    if KEY is None:
         return "Please provide the Sarvam API Key"
     lang = lang.lower()
     code = Languages.get(lang)
@@ -101,7 +101,7 @@ async def translate(text: str, lang:str) -> str:
         "api-subscription-key": KEY,
         "Content-Type": "application/json"
     }
-    if KEY == None:
+    if KEY is None:
         return "Please provide the Sarvam API Key"
     lang = lang.lower()
     code = Languages.get(lang)
@@ -130,7 +130,7 @@ async def sarvam_chat(query: str, mode: str = "basic", model: str = "sarvam-30b"
         "Authorization": f"Bearer {KEY}",
         "Content-Type": "application/json"
     }
-    if KEY == None:
+    if KEY is None:
         return "Please provide the Sarvam API Key"
     if model not in ("sarvam-30b", "sarvam-105b"):
         return "Invalid model. Choose 'sarvam-30b' or 'sarvam-105b'."
