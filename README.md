@@ -9,7 +9,7 @@
 - 🔍 **Language Identification** — Automatically detects language and script of input text
 - 🔤 **Transliteration** — Convert text between different Indic scripts while preserving pronunciation  
 - 🌐 **Translation** — Translate text across multiple Indic languages
-- 💬 **Sarvam Chat** — Interactive chat with SarvamAI-M model (with optional wiki grounding)
+- 💬 **Sarvam Chat** — Interactive chat with Sarvam AI models (`sarvam-30b`, `sarvam-105b`) with optional wiki grounding
 
 
 ## 🛠️ Installation & Setup
