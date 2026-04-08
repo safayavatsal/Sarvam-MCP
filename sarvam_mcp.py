@@ -65,7 +65,7 @@ async def lang_ident(text: str) -> str:
         return json.dumps({"error": str(ex)})
     
 @mcp.tool(name="Transliterate")
-async def lang_identification(text: str, lang:str) -> str:
+async def transliterate(text: str, lang:str) -> str:
     """
     Transliteration converts text from one script to another while preserving the original pronunciation.
     Supported Language are English, Hindi, Bengali, Gujarati, Kannada, Malayalam, Marathi, Odia, Punjabi, Tamil, Telugu
@@ -91,7 +91,7 @@ async def lang_identification(text: str, lang:str) -> str:
         return json.dumps({"error": str(ex)})
     
 @mcp.tool(name="Translate")
-async def lang_identification(text: str, lang:str) -> str:
+async def translate(text: str, lang:str) -> str:
     """
     Translation converts text from one language to another while preserving its meaning.
     Supported Language are English, Hindi, Bengali, Gujarati, Kannada, Malayalam, Marathi, Odia, Punjabi, Tamil, Telugu.
