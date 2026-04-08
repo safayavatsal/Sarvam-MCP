@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY . /app
 
-RUN pip install fastmcp dotenv httpx
+RUN pip install -r requirements.txt
 
 EXPOSE 8080
 
