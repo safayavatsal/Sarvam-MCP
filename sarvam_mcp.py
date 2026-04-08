@@ -79,6 +79,9 @@ async def transliterate(text: str, lang:str) -> str:
         return "Please provide the Sarvam API Key"
     lang = lang.lower()
     code = Languages.get(lang)
+    if code is None:
+        supported = ", ".join(sorted(set(Languages.keys()) - {k for k in Languages if len(k) <= 2}))
+        return f"Unsupported language: '{lang}'. Supported languages: {supported}"
     if len(text)>1000:
         return "Input too long. Max allowed: 1000 characters."
     payload = {"input": text,"source_language_code": "auto","target_language_code":code}
@@ -89,7 +92,7 @@ async def transliterate(text: str, lang:str) -> str:
             return json.dumps(response.json())
     except Exception as ex:
         return json.dumps({"error": str(ex)})
-    
+
 @mcp.tool(name="Translate")
 async def translate(text: str, lang:str) -> str:
     """
@@ -105,6 +108,9 @@ async def translate(text: str, lang:str) -> str:
         return "Please provide the Sarvam API Key"
     lang = lang.lower()
     code = Languages.get(lang)
+    if code is None:
+        supported = ", ".join(sorted(set(Languages.keys()) - {k for k in Languages if len(k) <= 2}))
+        return f"Unsupported language: '{lang}'. Supported languages: {supported}"
     payload = {"input": text,"source_language_code": "auto","target_language_code":code}
     try:
         async with httpx.AsyncClient() as client:
