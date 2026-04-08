@@ -1,2 +1,21 @@
+# Environment and secrets
+.env
+
+# OS files
+.DS_Store
+**/.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# IDE
+.cursor/
+.vscode/
+.idea/
+
 # OpenMemory - IDE/Assistant specific rules
 .cursor/rules/openmemory.mdc
